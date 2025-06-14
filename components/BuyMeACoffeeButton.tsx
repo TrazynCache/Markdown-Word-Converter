@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { Button } from './Button';
 import { IconCoffee } from './Icons';
 
 const BuyMeACoffeeButtonComponent: React.FC = () => {
   // IMPORTANT: Replace with your actual Buy Me a Coffee link
-  const coffeeLink = "https://www.buymeacoffee.com/yourusername"; 
+  const coffeeLink = "https://buymeacoffee.com/trazyncache"; 
 
   return (
     <a

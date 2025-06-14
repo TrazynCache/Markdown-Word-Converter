@@ -4,30 +4,25 @@ import { ToggleSwitch } from './components/ToggleSwitch';
 import { ConversionMode } from './types';
 import { IconDocumentText, IconFileTypeDoc } from './components/Icons'; 
 import { BuyMeACoffeeButton } from './components/BuyMeACoffeeButton';
-
-// Static import for components
 import { MarkdownToWordConverter } from './components/MarkdownToWordConverter';
 import { WordToMarkdownConverter } from './components/WordToMarkdownConverter';
 
-const LS_CONVERSION_MODE_KEY = 'docuMorph_conversionMode';
-
 const App: React.FC = () => {
   const [mode, setMode] = useState<ConversionMode>(() => {
-    const savedMode = localStorage.getItem(LS_CONVERSION_MODE_KEY) as ConversionMode;
-    return savedMode || ConversionMode.MARKDOWN_TO_WORD;
+    const saved = localStorage.getItem('docuMorph_mode') as ConversionMode;
+    return saved || ConversionMode.MARKDOWN_TO_WORD;
   });
 
   useEffect(() => {
-    localStorage.setItem(LS_CONVERSION_MODE_KEY, mode);
+    localStorage.setItem('docuMorph_mode', mode);
   }, [mode]);
 
-  const handleToggleMode = useCallback(() => {
-    setMode(prev => 
-      prev === ConversionMode.MARKDOWN_TO_WORD 
-        ? ConversionMode.WORD_TO_MARKDOWN 
-        : ConversionMode.MARKDOWN_TO_WORD
-    );
+  const toggleMode = useCallback(() => {
+    setMode(prev => prev === ConversionMode.MARKDOWN_TO_WORD 
+      ? ConversionMode.WORD_TO_MARKDOWN 
+      : ConversionMode.MARKDOWN_TO_WORD);
   }, []);
+
 
   return (
     <div className="min-h-screen bg-black text-neutral-300 flex flex-col items-center justify-center p-4 selection:bg-emerald-500 selection:text-black">
@@ -38,6 +33,14 @@ const App: React.FC = () => {
         <p className="mt-2 text-lg text-neutral-400">
           Seamlessly convert between Markdown and Word documents.
         </p>
+        <div className="mt-3 inline-flex items-center px-3 py-1.5 rounded-full bg-emerald-900/30 border border-emerald-700/50">
+          <svg className="w-4 h-4 text-emerald-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          <span className="text-xs text-emerald-300 font-medium">
+            100% Local Processing - Your documents never leave your device
+          </span>
+        </div>
       </header>
 
       <main className="w-full max-w-2xl bg-neutral-900 shadow-2xl shadow-emerald-500/10 rounded-xl p-6 md:p-8 border border-emerald-700">
@@ -48,7 +51,7 @@ const App: React.FC = () => {
             iconLeft={<IconDocumentText className="w-5 h-5" />}
             iconRight={<IconFileTypeDoc className="w-5 h-5" />}
             isChecked={mode === ConversionMode.WORD_TO_MARKDOWN}
-            onChange={handleToggleMode}
+            onChange={toggleMode}
             titleLeft="Switch to Markdown to Word converter"
             titleRight="Switch to Word to Markdown converter"
           />
@@ -64,7 +67,7 @@ const App: React.FC = () => {
 
       <footer className="mt-12 text-center text-neutral-400 text-sm space-y-2">
         <BuyMeACoffeeButton />
-        <p>Created by TrazynCache, with help of Gemini.</p>
+        <p>Created by TrazynCache, assisted by AI.</p>
         <p>&copy; {new Date().getFullYear()} DocuMorph. All rights reserved.</p>
         <p className="text-xs text-neutral-500">Powered by React, Tailwind CSS, and awesome open-source libraries.</p>
       </footer>

@@ -5,7 +5,7 @@ import { IconUpload, IconFileCheck, IconXCircle, IconCloudArrowUp } from './Icon
 interface FileInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   id: string;
-  inputRef?: React.RefObject<HTMLInputElement>;
+  inputRef?: React.RefObject<HTMLInputElement | null>;
   fileName?: string | null;
   placeholder?: string; 
   title?: string; 

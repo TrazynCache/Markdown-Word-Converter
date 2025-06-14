@@ -4,7 +4,7 @@ import { FileInput } from './FileInput';
 import { TextAreaInput } from './TextAreaInput';
 import { Button } from './Button';
 import { LoadingSpinner } from './LoadingSpinner';
-import { IconClipboardCopy, IconUpload, IconTrash, IconFileCheck, IconXCircle, IconFileTypeDoc, IconDownload, IconAlertTriangle } from './Icons'; 
+import { IconClipboardCopy, IconUpload, IconTrash, IconFileCheck, IconXCircle, IconFileTypeDoc, IconDownload, IconAlertTriangle } from './Icons';
 
 interface BatchFileStatus {
   id: string; // Unique ID for key prop
@@ -65,7 +65,7 @@ export const WordToMarkdownConverter: React.FC = () => {
       hr: '---',
       bulletListMarker: bulletListMarker,
       codeBlockStyle: 'fenced' as 'fenced' | 'indented', // Keep as 'fenced' for now, can be expanded
-      emDelimiter: '_',
+      emDelimiter: '_' as '_' | '*',
     };
   }, [headingStyle, bulletListMarker]);
 
@@ -350,7 +350,7 @@ export const WordToMarkdownConverter: React.FC = () => {
               onChange={handleFileChange}
               inputRef={fileInputRef}
               fileName={fileName}
-              placeholder="Choose a .docx or .doc file or drag and drop..."
+              placeholder="Choose a .docx or .doc file or drag and drop... (Max: 50MB per file)"
               title="Select a .docx or .doc file to convert to Markdown"
             />
           </div>
@@ -390,7 +390,7 @@ export const WordToMarkdownConverter: React.FC = () => {
             onChange={handleBatchFileChange}
             inputRef={batchFileInputRef}
             fileName={batchFiles.length > 0 ? `${batchFiles.length} file(s) selected` : null}
-            placeholder="Choose .docx or .doc file(s) or drag and drop..."
+            placeholder="Choose .docx or .doc file(s) or drag and drop... (Max: 50MB per file, 20 files)"
             title="Select multiple .docx or .doc files for batch conversion"
           />
           {batchFiles.length > 0 && (

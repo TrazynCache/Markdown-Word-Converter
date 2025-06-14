@@ -1,6 +1,6 @@
 {
   "name": "Markdown-Word Converter",
-  "description": "A web application to convert Markdown text to Word documents (.docx) and Word documents to Markdown text. Built with React, TypeScript, and Tailwind CSS.",
+  "description": "A web application to convert Markdown text to Word documents (.docx) and Word documents to Markdown text. Built with React, TypeScript, and Tailwind CSS through assistance of AI",
   "requestFramePermissions": [],
   "prompt": ""
 }

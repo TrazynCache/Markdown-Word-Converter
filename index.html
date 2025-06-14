@@ -3,38 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--
-    Extremely Permissive Content Security Policy for DIAGNOSTIC PURPOSES ONLY
-    in a restrictive hosting environment.
-    THIS IS NOT SUITABLE FOR PRODUCTION.
-  -->
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <!-- Secure Content Security Policy -->
   <meta http-equiv="Content-Security-Policy" content="
-    default-src * data: blob: 'unsafe-inline' 'unsafe-eval';
-    script-src * data: blob: 'unsafe-inline' 'unsafe-eval';
-    script-src-elem * data: blob: 'unsafe-inline' 'unsafe-eval';
-    style-src * data: blob: 'unsafe-inline';
-    style-src-elem * data: blob: 'unsafe-inline';
-    img-src * data: blob:;
-    font-src * data: blob:;
-    connect-src * data: blob:;
-    frame-src * data: blob:;
-    worker-src * data: blob: 'unsafe-inline' 'unsafe-eval';
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' 
+      https://cdn.tailwindcss.com 
+      https://cdn.jsdelivr.net 
+      https://cdnjs.cloudflare.com 
+      https://unpkg.com 
+      https://esm.sh;
+    script-src-elem 'self' 
+      https://cdn.tailwindcss.com 
+      https://cdn.jsdelivr.net 
+      https://cdnjs.cloudflare.com 
+      https://unpkg.com;
+    style-src 'self' 'unsafe-inline' 
+      https://cdn.tailwindcss.com;
+    style-src-elem 'self' 'unsafe-inline' 
+      https://cdn.tailwindcss.com;
+    img-src 'self' data: blob:;
+    font-src 'self' data:;
+    connect-src 'self' blob:;
+    frame-src 'none';
+    worker-src 'self' blob:;
     object-src 'none';
     base-uri 'self';
-    form-action * data: blob: 'unsafe-inline' 'unsafe-eval';
-    trusted-types default;
+    form-action 'self';
   ">
   <title>DocuMorph - Batch Markdown &amp; Word Converter</title>
   <!-- Tailwind CSS JIT CDN script: SRI is generally not applicable to JIT compilers or scripts that dynamically change.
        For production, consider a build step for Tailwind CSS to generate a static CSS file which can have SRI. -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/marked@13.0.1/marked.min.js" integrity="sha512-5gCeH3Xb+Hz4URTGBhInHnlT3bKBm0yQRhzv2sB6YX+3J2SF0fEM11PAayj/yItTBTkKllcvLBrrT0NkskLCCA==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.7.0/mammoth.browser.min.js" integrity="sha512-6BXRZPFx9cs4xjB9kKRbY0TSRWH3FVfAL71g0k+W99UrH9nveG0AUh9r7PT0G20A38S0RvsfH1Hq2l/2aTByBA==" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/turndown@7.1.3/dist/turndown.js" integrity="sha512-MDjJ22n61pxkgoV3Jia66IiHhUZR2G+wYJ0L8G/VKgZp1B0P89Z0A2EYL2Kj7zFASmFToQJg2z40QeK9iOE0kQ==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" integrity="sha512-Qlv6VSKh1gDKGoJbspo0EfcHxqoDHYQXOcmNVEGU9xIJbDZXwfjgeQwBF7M26L8CR6flNZwMARoU+dQvMOGaCsQ==" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/html-docx-js@0.3.1/dist/html-docx.js" integrity="sha512-97QOfqD2UFBAZ2FBe9Yp1N2VrAyCf2hgSDSOVjLxttFPE2biMZ7nPX6O420h5VTopI/gMDbSAJjRI0uT0QcQ9w==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-Ua5HjZXuD1vderXZSsff6efG0od1Zb7X2P2osDSt4J5k8u4gtL37hL8HNY1V4tBPaWdVq1GqK7dhSWsLMXIscA==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.5/purify.min.js" integrity="sha512-YoiPlqEU74PlWkE8h3RGlBCQ2XhR2o5A5oH7tX7TQkSSqyD2z9hhZIZN3h2L5gVwOuCLX9VjRjMyHq3V50lYLA==" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@13.0.1/marked.min.js" integrity="sha512-aQeokRCySoYEf2Ii3HlYvRHZ7qCfL/9M4EhawTlxYr3OKhZHUA7WxyVBPVHypYEdO33CjD8UhwxzP2tQsI7yrw==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.7.0/mammoth.browser.min.js" integrity="sha512-5rhrET8+DEW1LEetnFJMD+dien4m45v5wKGqpBTlHhaPKiahcwlcbRvMNniFwMdHMAZVExgZRNU6dPSJiL455w==" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/turndown@7.1.3/dist/turndown.js" integrity="sha512-CTLKjEiFzHaQtLi8JIbxJx2Fgn8iD/ZjN8euCyRhjoQQjQmE01OOUdi/vM56oMrPMtFcN+Yt5yhMofVAdNCJUg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw==" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/html-docx-js@0.3.1/dist/html-docx.js" integrity="sha512-bzl4qumT2zPCT1pxCulU1p3d0++KlZYuobAVvTPeILpR25dYmGnMSBZty9o9Jg/Y66BcvNqmSQcsLwr6NtvT9g==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.5/purify.min.js" integrity="sha512-JatFEe90fJU2nrgf27fUz2hWRvdYrSlTEV8esFuqCtfiqWN8phkS1fUl/xCfYyrLDQcNf3YyS0V9hG7U4RHNmQ==" crossorigin="anonymous"></script>
   <style>
     body {
       font-family: 'Inter', sans-serif; /* A common Tailwind font stack */
