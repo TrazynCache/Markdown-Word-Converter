@@ -20,7 +20,7 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    console.error('DocuMorph Error:', error, errorInfo);
+    console.error('MDWord Error:', error, errorInfo);
   }
 
   render() {
@@ -34,7 +34,7 @@ export class ErrorBoundary extends Component<Props, State> {
               </svg>
               <h1 className="text-2xl font-bold text-red-400 mb-2">Something went wrong</h1>
               <p className="text-neutral-400 mb-6">
-                DocuMorph encountered an unexpected error. This might be due to a large file or browser limitation.
+                MDWord encountered an unexpected error. This might be due to a large file or browser limitation.
               </p>
             </div>
             

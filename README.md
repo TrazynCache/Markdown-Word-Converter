@@ -1,6 +1,6 @@
-# DocuMorph - Markdown & Word Converter
+# MDWord - Markdown & Word Converter
 
-DocuMorph is a web-based application that seamlessly converts between Markdown and Word documents. Built with React and TypeScript, it offers both single file conversion and batch processing capabilities.
+MDWord is a web-based application that seamlessly converts between Markdown and Word documents. Built with React and TypeScript, it offers both single file conversion and batch processing capabilities.
 
 ## Features
 

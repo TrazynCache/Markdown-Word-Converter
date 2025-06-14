@@ -9,12 +9,12 @@ import { WordToMarkdownConverter } from './components/WordToMarkdownConverter';
 
 const App: React.FC = () => {
   const [mode, setMode] = useState<ConversionMode>(() => {
-    const saved = localStorage.getItem('docuMorph_mode') as ConversionMode;
+    const saved = localStorage.getItem('mdWord_mode') as ConversionMode;
     return saved || ConversionMode.MARKDOWN_TO_WORD;
   });
 
   useEffect(() => {
-    localStorage.setItem('docuMorph_mode', mode);
+    localStorage.setItem('mdWord_mode', mode);
   }, [mode]);
 
   const toggleMode = useCallback(() => {
@@ -28,7 +28,7 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-black text-neutral-300 flex flex-col items-center justify-center p-4 selection:bg-emerald-500 selection:text-black">
       <header className="mb-8 text-center">
         <h1 className="text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-500">
-          DocuMorph
+          MDWord
         </h1>
         <p className="mt-2 text-lg text-neutral-400">
           Seamlessly convert between Markdown and Word documents.
@@ -68,7 +68,7 @@ const App: React.FC = () => {
       <footer className="mt-12 text-center text-neutral-400 text-sm space-y-2">
         <BuyMeACoffeeButton />
         <p>Created by TrazynCache, assisted by AI.</p>
-        <p>&copy; {new Date().getFullYear()} DocuMorph. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} MDWord. All rights reserved.</p>
         <p className="text-xs text-neutral-500">Powered by React, Tailwind CSS, and awesome open-source libraries.</p>
       </footer>
     </div>

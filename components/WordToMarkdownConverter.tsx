@@ -25,7 +25,7 @@ const formatFileSize = (bytes: number): string => {
 type HeadingStyle = 'setext' | 'atx';
 type BulletListMarker = '*' | '-' | '+';
 
-const LS_PREFIX_WTM = 'docuMorph_wordToMd_';
+const LS_PREFIX_WTM = 'mdWord_wordToMd_';
 const LS_HEADING_STYLE = LS_PREFIX_WTM + 'headingStyle';
 const LS_BULLET_MARKER = LS_PREFIX_WTM + 'bulletListMarker';
 

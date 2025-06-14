@@ -1,4 +1,4 @@
-// Shared utilities for DocuMorph
+// Shared utilities for MDWord
 export const formatFileSize = (bytes: number): string => {
   if (bytes === 0) return '0 Bytes';
   const k = 1024;
@@ -28,14 +28,14 @@ export const copyToClipboard = async (text: string): Promise<boolean> => {
 // Storage keys
 export const STORAGE_KEYS = {
   MD_TO_WORD: {
-    FONT_FAMILY: 'docuMorph_fontFamily',
-    FONT_SIZE: 'docuMorph_fontSize',
-    BOLD_HEADERS: 'docuMorph_boldHeaders',
-    ITALIC_HEADERS: 'docuMorph_italicHeaders',
+    FONT_FAMILY: 'mdWord_fontFamily',
+    FONT_SIZE: 'mdWord_fontSize',
+    BOLD_HEADERS: 'mdWord_boldHeaders',
+    ITALIC_HEADERS: 'mdWord_italicHeaders',
   },
   WORD_TO_MD: {
-    HEADING_STYLE: 'docuMorph_headingStyle',
-    BULLET_MARKER: 'docuMorph_bulletMarker',
+    HEADING_STYLE: 'mdWord_headingStyle',
+    BULLET_MARKER: 'mdWord_bulletMarker',
   },
 } as const;
 
