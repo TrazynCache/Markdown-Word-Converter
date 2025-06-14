@@ -34,7 +34,7 @@ DocuMorph is a web-based application that seamlessly converts between Markdown a
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/TrazynCache/Markdown-Word-Converter
    cd markdown-word-converter
    ```
 
