@@ -24,7 +24,7 @@ const ToggleSwitchComponent: React.FC<ToggleSwitchProps> = ({
   return (
     <div className="flex items-center justify-center space-x-1 p-1 bg-neutral-800 rounded-lg shadow-inner border border-emerald-700">
       <button 
-        onClick={!isChecked ? onChange : undefined} 
+        onClick={isChecked ? onChange : undefined} 
         aria-pressed={!isChecked}
         title={titleLeft || labelLeft}
         className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ease-in-out
@@ -35,7 +35,7 @@ const ToggleSwitchComponent: React.FC<ToggleSwitchProps> = ({
       </button>
       
       <button 
-        onClick={isChecked ? onChange : undefined} 
+        onClick={!isChecked ? onChange : undefined} 
         aria-pressed={isChecked}
         title={titleRight || labelRight}
         className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ease-in-out
