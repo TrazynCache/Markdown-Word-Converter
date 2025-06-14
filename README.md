@@ -2,7 +2,7 @@
 
 MDWord is a web-based application that seamlessly converts between Markdown and Word documents. Built with React and TypeScript, it offers both single file conversion and batch processing capabilities.
 
-![MDWord Screenshot](../images/MDWord_TrazynCache_screenshot_cropped.PNG)
+![MDWord Screenshot](images/MDWord_TrazynCache_screenshot_cropped.PNG)
 
 ## Features
 
