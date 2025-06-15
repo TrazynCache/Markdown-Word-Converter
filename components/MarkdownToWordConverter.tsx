@@ -64,8 +64,22 @@ export const MarkdownToWordConverter: React.FC = () => {
   ]), []);
 
   const convertMarkdownToWord = useCallback(async (markdownText: string): Promise<Blob> => {
-    const html = window.marked.parse(markdownText);
-    const purifiedHTML = window.DOMPurify.sanitize(html);
+    // Pre-process markdown to prevent dash conversion issues
+    // Replace em dashes and en dashes back to regular dashes to prevent encoding issues
+    let processedMarkdown = markdownText;
+    
+    const html = window.marked.parse(processedMarkdown, {
+      gfm: true,
+      breaks: false
+    });
+    
+    // Post-process HTML to fix any dash encoding issues
+    let processedHTML = html
+      .replace(/—/g, '-')  // Replace em dashes with regular dashes
+      .replace(/–/g, '-')  // Replace en dashes with regular dashes
+      .replace(/â€"/g, '-'); // Fix the specific encoding issue mentioned
+    
+    const purifiedHTML = window.DOMPurify.sanitize(processedHTML);
     
     const styledHTML = `
       <html>
