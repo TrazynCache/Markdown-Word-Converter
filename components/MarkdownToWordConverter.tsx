@@ -241,13 +241,22 @@ export const MarkdownToWordConverter: React.FC = () => {
 
           <div>
             <label className="block text-xs font-medium text-neutral-400 mb-1">Body Font Size</label>
-            <input
-              type="text"
+            <select
               value={bodyFontSize}
               onChange={(e) => setBodyFontSize(e.target.value)}
               className="block w-full px-3 py-2 border border-neutral-600 bg-neutral-700 text-neutral-200 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500"
-              placeholder="e.g., 12pt"
-            />
+            >
+              <option value="8pt">8pt</option>
+              <option value="9pt">9pt</option>
+              <option value="10pt">10pt</option>
+              <option value="11pt">11pt</option>
+              <option value="12pt">12pt</option>
+              <option value="14pt">14pt</option>
+              <option value="16pt">16pt</option>
+              <option value="18pt">18pt</option>
+              <option value="20pt">20pt</option>
+              <option value="24pt">24pt</option>
+            </select>
           </div>
         </div>
 
