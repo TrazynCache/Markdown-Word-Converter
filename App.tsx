@@ -67,7 +67,7 @@ const App: React.FC = () => {
 
       <footer className="mt-12 text-center text-neutral-400 text-sm space-y-2">
         <BuyMeACoffeeButton />
-        <p>Created by TrazynCache, assisted by AI.</p>
+        <p>Created by IronAdamant, assisted by AI.</p>
         <p>&copy; {new Date().getFullYear()} MDWord. All rights reserved.</p>
         <p className="text-xs text-neutral-500">Powered by React, Tailwind CSS, and awesome open-source libraries.</p>
       </footer>

@@ -2,7 +2,7 @@
 
 MDWord is a web-based application that seamlessly converts between Markdown and Word documents. Built with React and TypeScript, it offers both single file conversion and batch processing capabilities.
 
-![MDWord Screenshot](images/MDWord_TrazynCache_screenshot_cropped.PNG)
+![MDWord Screenshot](images/MDWord_IronAdamant_screenshot_cropped.PNG)
 
 ## Features
 
@@ -36,7 +36,7 @@ MDWord is a web-based application that seamlessly converts between Markdown and 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/TrazynCache/Markdown-Word-Converter
+   git clone https://github.com/IronAdamant/Markdown-Word-Converter
    cd markdown-word-converter
    ```
 
@@ -118,6 +118,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Acknowledgments
 
-- Created by TrazynCache
+- Created by IronAdamant
 - Assisted by AI
 - Built with modern web technologies and open-source libraries
